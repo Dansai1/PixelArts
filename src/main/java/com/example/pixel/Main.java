@@ -1,12 +1,15 @@
 package com.example.pixel;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;//holi
+import java.net.URL;
 
 public class Main extends Application {
     @Override
@@ -17,8 +20,10 @@ public class Main extends Application {
         stage.setHeight(720);
         stage.setMaximized(true);
 
-        Label label = new Label("Probando");
-        Scene scene = new Scene(label, 400, 200);
+        FXMLLoader cargar = new FXMLLoader(getClass().getResource("index.fxml"));
+        BorderPane pane = cargar. <BorderPane>load();
+
+        Scene scene = new Scene(pane);
         scene.setCursor(Cursor.HAND);
         stage.setScene(scene);
 
