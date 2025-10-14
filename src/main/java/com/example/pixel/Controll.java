@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseButton;
 import javafx.scene.paint.Color;
 import javafx.scene.input.MouseEvent;
@@ -78,5 +79,15 @@ public class Controll {
         Button boton = (Button) e.getSource();
         String colorStr = (String) boton.getUserData();
         this.colorDraw = Color.valueOf(colorStr);
+    }
+
+    @FXML
+    private void processVista(ActionEvent e){
+        MenuItem opcion = (MenuItem) e.getSource();
+        int size = Integer.parseInt((String) opcion.getUserData());
+        this.gridSize = size;
+
+        cellSize = (double) canvasSize / gridSize;
+        drawGrid();
     }
 }
