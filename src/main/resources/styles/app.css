@@ -5,14 +5,28 @@
 
 /* Barra de menú */
 .menu-bar {
-    -fx-background-color: #f8f9fa;
+    -fx-background-color: #2e2e2e;
     -fx-border-color: #ccc;
     -fx-border-width: 0 0 1 0;
 }
+.menu-bar .label {
+    -fx-text-fill: #f5f5f5;
+}
+.context-menu {
+    -fx-background-color: #3a3a3a;
+}
 
-/* Botones laterales */
+/* VBox lateral */
+.vbox {
+    -fx-spacing: 50;
+    -fx-padding: 20;
+    -fx-background-color: #4d5156;
+    -fx-border-color: #ccc;
+    -fx-border-width: 0 1 0 0;
+}
+
+/* Botones base */
 .button {
-    -fx-background-color: linear-gradient(to bottom, #f0f0f0, #d9d9d9);
     -fx-border-color: #bfbfbf;
     -fx-border-radius: 4;
     -fx-background-radius: 4;
@@ -21,34 +35,38 @@
     -fx-cursor: hand;
 }
 
-/* Hover en botones */
+/* Hover genérico */
 .button:hover {
     -fx-background-color: linear-gradient(to bottom, #e6e6e6, #cccccc);
 }
 
-/* Canvas con borde */
+/* Botones de color */
+.boton-color {
+    -fx-background-radius: 8;
+    -fx-min-width: 40;
+    -fx-min-height: 40;
+    -fx-max-width: 40;
+    -fx-max-height: 40;
+    -fx-border-color: #2e2e2e;
+    -fx-border-width: 2;
+    -fx-padding: 0;
+}
+.boton-color:hover {
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-cursor: hand;
+}
+
+/* Canvas */
 .canvas {
     -fx-border-color: #bbb;
     -fx-border-width: 2;
     -fx-background-color: white;
 }
 
-/* VBox lateral */
-.vbox {
-    -fx-spacing: 10;
+/* inferior*/
+.datosVentana {
     -fx-padding: 10;
-    -fx-background-color: #4d5156;
-    -fx-border-color: #ccc;
-    -fx-border-width: 0 1 0 0;
-}
-
-/* Grid de colores */
-.grid-pane {
-    -fx-hgap: 5;
-    -fx-vgap: 5;
-}
-
-/* Menú superior */
-.menu {
-    -fx-font-size: 13px;
+    -fx-background-color: #2e2e2e;
+    -fx-alignment: CENTER_RIGHT;
 }

@@ -12,14 +12,19 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.canvas.Canvas?>
 
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.layout.StackPane?>
 <BorderPane xmlns:fx="http://javafx.com/fxml" prefHeight="720" prefWidth="1280" fx:controller="com.example.pixel.Controll" >
     <top>
         <MenuBar>
             <Menu text="Archivos">
                 <MenuItem text="Nuevo" />
+                <MenuItem text="Guardar"/>
                 <MenuItem text="Exportar" />
             </Menu>
-            <Menu text="Guardar"/>
             <Menu text="Vista">
                 <MenuItem text="16x16" userData="16" onAction="#processVista"/>
                 <MenuItem text="32x32" userData="32" onAction="#processVista"/>
@@ -29,25 +34,42 @@
     </top>
     <left>
         <VBox styleClass="vbox">
-            <VBox>
+            <VBox styleClass="herramientas" alignment="CENTER">
                 <Button text="Lapiz"/>
                 <Button text="Goma"/>
                 <Button text="Cubeta"/>
             </VBox>
-            <GridPane>
-                <Button text="Amarillo" userData="YELLOW" GridPane.rowIndex="0" GridPane.columnIndex="0" onAction="#processColor"/>
-                <Button text="Naranja" userData="ORANGE" GridPane.rowIndex="0" GridPane.columnIndex="1" onAction="#processColor"/>
-                <Button text="Rojo" userData="RED" GridPane.rowIndex="0" GridPane.columnIndex="2" onAction="#processColor"/>
-                <Button text="Rosa" userData="PINK" GridPane.rowIndex="1" GridPane.columnIndex="0" onAction="#processColor"/>
-                <Button text="Morado" userData="PURPLE" GridPane.rowIndex="1" GridPane.columnIndex="1" onAction="#processColor"/>
-                <Button text="Azul" userData="BLUE" GridPane.rowIndex="1" GridPane.columnIndex="2" onAction="#processColor"/>
-                <Button text="Verde" userData="GREEN" GridPane.rowIndex="2" GridPane.columnIndex="0" onAction="#processColor"/>
-                <Button text="Cafe" userData="MAROON" GridPane.rowIndex="2" GridPane.columnIndex="1" onAction="#processColor"/>
-                <Button text="Negro" userData="BLACK" GridPane.rowIndex="2" GridPane.columnIndex="2" onAction="#processColor"/>
+            <GridPane styleClass="paleta">
+                <Button styleClass="boton-color" style="-fx-background-color: yellow;" userData="YELLOW" GridPane.rowIndex="0" GridPane.columnIndex="0" onAction="#processColor"/>
+                <Button styleClass="boton-color" style="-fx-background-color: orange;" userData="ORANGE" GridPane.rowIndex="0" GridPane.columnIndex="1" onAction="#processColor"/>
+                <Button styleClass="boton-color" style="-fx-background-color: red;" userData="RED" GridPane.rowIndex="0" GridPane.columnIndex="2" onAction="#processColor"/>
+                <Button styleClass="boton-color" style="-fx-background-color: pink;" userData="PINK" GridPane.rowIndex="1" GridPane.columnIndex="0" onAction="#processColor"/>
+                <Button styleClass="boton-color" style="-fx-background-color: purple;" userData="PURPLE" GridPane.rowIndex="1" GridPane.columnIndex="1" onAction="#processColor"/>
+                <Button styleClass="boton-color" style="-fx-background-color: blue;" userData="BLUE" GridPane.rowIndex="1" GridPane.columnIndex="2" onAction="#processColor"/>
+                <Button styleClass="boton-color" style="-fx-background-color: green;" userData="GREEN" GridPane.rowIndex="2" GridPane.columnIndex="0" onAction="#processColor"/>
+                <Button styleClass="boton-color" style="-fx-background-color: maroon;" userData="MAROON" GridPane.rowIndex="2" GridPane.columnIndex="1" onAction="#processColor"/>
+                <Button styleClass="boton-color" style="-fx-background-color: black;" userData="BLACK" GridPane.rowIndex="2" GridPane.columnIndex="2" onAction="#processColor"/>
             </GridPane>
         </VBox>
     </left>
     <center>
-        <Canvas fx:id="canvas" width="512" height="512"/>
+        <ScrollPane fx:id="scrollPane" pannable="true">
+            <content>
+                <StackPane fx:id="canvasContainer" alignment="CENTER">
+                    <Canvas fx:id="canvas" width="512" height="512"/>
+                </StackPane>
+            </content>
+        </ScrollPane>
     </center>
+    <bottom>
+        <HBox styleClass="datosVentana">
+            <Slider fx:id="zoom"
+                    min="25" max="200" value="100"
+                    showTickMarks="true"
+                    showTickLabels="true"
+                    majorTickUnit="25"
+                    blockIncrement="25"
+            />
+        </HBox>
+    </bottom>
 </BorderPane>
